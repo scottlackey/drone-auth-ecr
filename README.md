@@ -21,7 +21,7 @@ pipeline:
   auth:
     image: drone-auth-ecr
     commands:
-      - aws ecr get-login | bash 
+      - aws ecr get-login --region us-east-1 | bash 
       - docker pull 12345.dkr.ecr.us-west-2.amazonaws.com/my-image:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
