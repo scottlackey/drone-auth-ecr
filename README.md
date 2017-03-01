@@ -3,8 +3,9 @@ enabling drone to pull from ECR
 
 **Author**: [Scott Lackey](https://github.com/scottlackey)
 
-This repository serves as an example of how to get a [Drone
-CI][drone] container to pull images from [AWS EC2 Container Service][ecr]. 
+This image acts as a liazon between your [drone](http://readme.drone.io/0.5/) instance and [Amazon ECR](https://aws.amazon.com/ecr/). 
+It has the AWS ECR client and the docker daemon installed so that it can pull an image from ECR. Since drone shares it's volumes the 
+ECR image is available for all build steps.
 
 To build
 ---------

@@ -1,5 +1,5 @@
-#This auth-ecs image contains AWS credentials and lives on the private clicktripz dockerhub.
-#It is pulled by drone to auth to ECS and pull an ECS image as a step in the pipeline
+#This drone-auth-ecr image contains AWS credentials and lives on a private docker registry
+#It is pulled by drone to auth to ECR and pull an ECR image as a step in the pipeline
 FROM debian:jessie
 
 # AWS CLI needs the PYTHONIOENCODING environment varialbe to handle UTF-8 correctly:
