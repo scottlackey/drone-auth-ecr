@@ -6,8 +6,7 @@ FROM debian:jessie
 ENV PYTHONIOENCODING=UTF-8
 ENV PATH=/root/.local/bin:$PATH
 
-## Copy AWS credentials and config 
-COPY config/credentials /root/.aws/credentials
+## Copy AWS config, credentials should be automatically pulled from IAM role associated with drone instance
 COPY config/config /root/.aws/config
 
 #install the aws prereqs

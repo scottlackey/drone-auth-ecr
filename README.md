@@ -1,4 +1,4 @@
-drone-auth-ecr is a docker image that lives in your private docker registry that can be pulled to auth against ECR from within drone, 
+drone-auth-ecr is a docker image that lives in your docker registry that can be pulled to auth against ECR from within drone, 
 enabling drone to pull from ECR
 
 **Author**: [Scott Lackey](https://github.com/scottlackey)
@@ -10,10 +10,9 @@ ECR image is available for all build steps.
 To build
 ---------
 
-- update the credentials file
+- Ensure your drone CI node in AWS is configured with an IAM role with permissions to interact with ECR/ECS
+- Ensure the config/config file has the correct AWS region.
 - build the image with docker build, tag and push
-- Only push to a private registry
-
 
 example usage in Drone v.5 pipeline
 -------------
@@ -21,9 +20,6 @@ example usage in Drone v.5 pipeline
 pipeline:
   auth:
     image: drone-auth-ecr
-    auth_config:
-      username: ${DOCKER_REGISTRY_USERNAME}
-      password: ${DOCKER_REGISTRY_PASSWORD}
     commands:
       - aws ecr get-login | bash 
       - docker pull 12345.dkr.ecr.us-west-2.amazonaws.com/my-image:latest
